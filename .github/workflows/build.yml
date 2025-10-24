@@ -109,6 +109,7 @@ jobs:
             cmake.exe -LH -G"MinGW Makefiles" ^
             -DCMAKE_BUILD_TYPE=Release ^
             -DBUILD_SHARED_LIBS=OFF ^
+            -DNTHREADS=4 ^
             -DCMAKE_INSTALL_PREFIX="cmake-build/${{ env.cmakeInstallationPath }}" -B./cmake-build &&^
             cd cmake-build && ( cmake --build . --config Release && cmake --install . && cd .. && cmake.exe -LH -G"MinGW Makefiles" -B./cmake-build > "cmake-build\${{ env.cmakeInstallationPath }}\cmake-lh-export.txt" || type .\CMakeFiles\CMakeError.log )
             
